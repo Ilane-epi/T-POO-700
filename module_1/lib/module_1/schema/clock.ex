@@ -5,7 +5,7 @@ defmodule Module1.Schema.Clock do
   schema "clocks" do
     field :status, :boolean, default: false
     field :time, :naive_datetime
-
+    belongs_to user: user
     timestamps()
   end
 
@@ -14,5 +14,6 @@ defmodule Module1.Schema.Clock do
     clock
     |> cast(attrs, [:time, :status])
     |> validate_required([:time, :status])
+
   end
 end
